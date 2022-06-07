@@ -1,0 +1,132 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+# --------------- custom ----------------
+- intent: ask_tournaments
+  examples: |
+    - what tournaments are playing now?
+    - show tournaments
+    - what tournaments are scheduled
+    - any tournaments playing?
+
+- intent: show_players
+  examples: |
+    - show me players from tournament [chess2508](tournament_id)
+    - what players are in tournament [csgo1709](tournament_id)?
+    - get players from [chess2508](tournament_id)
+    - show players [csgo1709](tournament_id)
+    - who is playing in tournament [chess2508](tournament_id)?
+
+- intent: show_tournament_description
+  examples: |
+    - show me description from tournament [chess2508](tournament_id)
+    - what description is in tournament [csgo1709](tournament_id)?
+    - get description from [chess2508](tournament_id)
+    - show description [csgo1709](tournament_id)
+    - show info from [chess2508](tournament_id)
+    - get info from [chess2508](tournament_id)
+    - show me info from tournament [chess2508](tournament_id)
+
+#- intent: wants_to_participate
+#  examples: |
+#    - i want to play in [chess2508](kurwa)
+#    - i want to participate in [csgo1709](kurwa)
+#    - i would like to play [chess2508](kurwa)
+#    - i would like to join [csgo1709](kurwa)
+#    - wants to play [chess2508](kurwa)
+#    - want play [csgo1709](kurwa)
+#
+#- intent: player_info
+#  examples: |
+#    - my name is [Grzegorz Kowalski](name) and im [24](age)
+#    - im [Natalia Kluza](name) and my age is [19](age)
+#    - im [16](age) and my name is [Kasia Nowak](name)

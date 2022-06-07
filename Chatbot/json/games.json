@@ -1,0 +1,45 @@
+{
+  "games": [
+    {
+      "id": "chess2508",
+      "name": "chess tournament",
+      "description": "chess tournament that will be held in Kraków, Slav Hotel on the 2nd floor.\nAttendees are reuired to check in 20 minutes before start.",
+      "date": "25-08-2022 16:00:00",
+      "players": [
+        {
+          "name": "Grzegorz Kowalski",
+          "age": 28,
+          "assignedNumber": 1
+        },
+        {
+          "name": "Maciej Nowak",
+          "age": 24,
+          "assignedNumber": 2
+        }
+      ]
+    },
+    {
+      "id": "csgo1709",
+      "name": "local csgo tournament",
+      "description": "Local csgo tournament that will be held in High School in Wieliczka. Attendees are required to have student license with themselves.",
+      "date": "17-09-2022 18:00:00",
+      "players": [
+        {
+          "name": "Andrzej Kowal",
+          "age": 23,
+          "assignedNumber": 1
+        },
+        {
+          "name": "Natalia Malysz",
+          "age": 19,
+          "assignedNumber": 2
+        },
+        {
+          "name": "Krzysiek Kluza",
+          "age": 21,
+          "assignedNumber": 3
+        }
+      ]
+    }
+  ]
+}

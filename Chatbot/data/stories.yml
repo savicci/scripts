@@ -1,0 +1,32 @@
+version: "3.1"
+
+stories:
+
+# ------------------------- custom -------------------
+- story: Show tournaments that are scheduled
+  steps:
+    - intent: ask_tournaments
+    - action: action_show_tournaments
+    - checkpoint: showed_tournaments
+
+
+- story: Show players from tournament
+  steps:
+    - checkpoint: showed_tournaments
+    - intent: show_players
+    - action: action_show_tournament_players
+
+- story: Show tournament description
+  steps:
+    - checkpoint: showed_tournaments
+    - intent: show_tournament_description
+    - action: action_show_tournament_description
+
+#- story: Add player to tournament with description
+#  steps:
+#    - checkpoint: action_show_tournaments
+#    - intent: wants_to_participate
+#    - action: action_ask_player_info
+#    - intent: player_info
+#    - action: action_add_player_with_info
+
