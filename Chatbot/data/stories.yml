@@ -22,11 +22,17 @@ stories:
     - intent: show_tournament_description
     - action: action_show_tournament_description
 
-#- story: Add player to tournament with description
-#  steps:
-#    - checkpoint: action_show_tournaments
-#    - intent: wants_to_participate
-#    - action: action_ask_player_info
-#    - intent: player_info
-#    - action: action_add_player_with_info
+- story: Show esport links to the player
+  steps:
+    - intent: greet
+    - action: utter_ask_esport_interested
+    - intent: affirm
+    - action: action_show_esport_links
+
+- story: Don't show esport links to the player
+  steps:
+    - intent: greet
+    - action: utter_ask_esport_interested
+    - intent: deny
+    - action: utter_action_not_show_esport_links
 

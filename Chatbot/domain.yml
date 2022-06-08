@@ -16,9 +16,9 @@ intents:
 actions:
   - action_show_tournaments
   - action_show_tournament_players
-  - action_add_player_with_info
   - action_ask_player_info
   - action_show_tournament_description
+  - action_show_esport_links
 
 entities:
   - tournament_id
@@ -49,6 +49,12 @@ responses:
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+  utter_ask_esport_interested:
+  - text: "Are you perhaps interested in e-sport?"
+
+  utter_action_not_show_esport_links:
+  - text: "That's a shame, hopefully you will change your mind someday."
 
 
   # ---------- custom -------------

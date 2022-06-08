@@ -1,0 +1,20 @@
+{
+  "pages": [
+    {
+      "game": "Counter Strike",
+      "link": "https://esportnow.pl/category/csgo/"
+    },
+    {
+      "game": "Counter Strike",
+      "link": "https://cybersport.pl/"
+    },
+    {
+      "game": "League of Legends",
+      "link": "https://lolesports.com/"
+    },
+    {
+      "game": "League of Legends",
+      "link": "https://esportnow.pl/category/lol/"
+    }
+  ]
+}

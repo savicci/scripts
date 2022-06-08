@@ -29,13 +29,13 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import SlotSet
 import json
 
-file = open("./json/games.json")
-data = json.load(file)
+games_file = open("./json/games.json")
+games_data = json.load(games_file)
 
-print(data)
+links_file = open("./json/links.json")
+links_data = json.load(links_file)
 
 
 class ActionShowTournament(Action):
@@ -48,13 +48,12 @@ class ActionShowTournament(Action):
         print("Calling {}".format(self.name()))
 
         tournaments = []
-        for tournament in data["games"]:
+        for tournament in games_data["games"]:
             tournaments.append({"name": tournament["name"], "date": tournament["date"], "id": tournament["id"]})
 
-        dispatcher.utter_message(text="Tournaments scheduled: {}".format(tournaments))
+        dispatcher.utter_message(text="Tournaments scheduled: {}".format(json.dumps(tournaments, indent=2)))
 
         return []
-
 
 
 class ActionShowTournamentPlayers(Action):
@@ -68,9 +67,9 @@ class ActionShowTournamentPlayers(Action):
         tournament_id = next(tracker.get_latest_entity_values('tournament_id'), "none")
 
         found = False
-        for tournament in data["games"]:
+        for tournament in games_data["games"]:
             if tournament["id"] == tournament_id:
-                dispatcher.utter_message(text="Players: {}".format(tournament["players"]))
+                dispatcher.utter_message(text="Players: {}".format(json.dumps(tournament["players"], indent=2)))
                 found = True
                 break
 
@@ -78,6 +77,7 @@ class ActionShowTournamentPlayers(Action):
             dispatcher.utter_message(text="Could not find tournament with id: {}".format(tournament_id))
 
         return []
+
 
 class ActionShowTournamentDescription(Action):
     def name(self) -> Text:
@@ -90,7 +90,7 @@ class ActionShowTournamentDescription(Action):
         tournament_id = next(tracker.get_latest_entity_values('tournament_id'), "none")
 
         found = False
-        for tournament in data["games"]:
+        for tournament in games_data["games"]:
             if tournament["id"] == tournament_id:
                 dispatcher.utter_message(text="Description: {}".format(tournament["description"]))
                 found = True
@@ -101,24 +101,16 @@ class ActionShowTournamentDescription(Action):
 
         return []
 
-class ActionAddPlayerWithInfo(Action):
+class ActionShowEsportLinks(Action):
     def name(self) -> Text:
-        return "action_add_player_with_info"
+        return "action_show_esport_links"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         print("Calling {}".format(self.name()))
 
-        name = next(tracker.get_latest_entity_values('name'))
-        age = next(tracker.get_latest_entity_values('age'))
-        tournament_id = next(tracker.get_latest_entity_values('kurwa'), "none")
-
-        print(name)
-        print(age)
-        print(tournament_id)
-        print(tracker.get_slot('kurwa'))
-
-        dispatcher.utter_message(text="Adding player to tournament ")
+        dispatcher.utter_message(
+            text="Cool, here is some e-sport links: {}\n Hope you have fun".format(json.dumps(links_data, indent=2)))
 
         return []
