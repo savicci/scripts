@@ -36,6 +36,7 @@ DISCORD_GUILD=<your_guild_name, like RasaBasedChatbotGKProject>
 2. Showing active tournaments.
 3. Showing players from tournament
 4. Showing tournament description.
+5. Asking if x is esport player. Bot calls wikipedia and scrapes list of esport players.
 
 ### Visualised graph
 
