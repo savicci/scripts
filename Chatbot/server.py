@@ -31,7 +31,7 @@ async def on_message(message):
         return
 
     r = requests.post('http://localhost:5005/webhooks/rest/webhook',
-                      json={"sender": message.author, "message": message.content})
+                      json={"sender": message.author.display_name, "message": message.content})
     all_lines = r.json()
     message_for_user = ''
     for line in all_lines:

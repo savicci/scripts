@@ -6,8 +6,8 @@
 
 
 ### Json data
-list of tournaments. Tournament contains list of teams.
-Team contains list of players
+list of tournaments which contain info, players and date
+links data contain esport links that bot sends
 
 ### How to use
 * Create conda env
@@ -24,8 +24,19 @@ DISCORD_TOKEN=<your_bot_token>
 DISCORD_GUILD=<your_guild_name, like RasaBasedChatbotGKProject>
 ```
 
+#### Local setup
+
+* Open terminal and type ```rasa run actions``` to run custom actions server.
+* Open another and type ```rasa run``` to open main server
+* Open another and type ```python server.py``` to start discord bot server
+
 ### Actions to take
 
-1. Ask which matches are playing.
-2. Asks if user likes esport, and if yes which game. If lol or cs then gives links to pages.
-3. 
+1. Greeting. Users says hello and bot asks if user likes esport. If user says yes then the bot returns some esport links that may be interesting.
+2. Showing active tournaments.
+3. Showing players from tournament
+4. Showing tournament description.
+
+### Visualised graph
+
+![Graph](graph.jpg "Graph")
