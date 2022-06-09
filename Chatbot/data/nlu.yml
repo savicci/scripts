@@ -116,6 +116,13 @@ nlu:
     - get info from [chess2508](tournament_id)
     - show me info from tournament [chess2508](tournament_id)
 
+- intent: is_player_on_wiki_list
+  examples: |
+    - is [Faker](player_nickname) famous?
+    - is [xQc](player_nickname) esport player?
+    - is [xPeke](player_nickname) from esports?
+    - who is [Doublelift](player_nickname) player?  
+
 #- intent: wants_to_participate
 #  examples: |
 #    - i want to play in [chess2508](kurwa)

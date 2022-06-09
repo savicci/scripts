@@ -36,3 +36,8 @@ stories:
     - intent: deny
     - action: utter_action_not_show_esport_links
 
+- story: Check if esport player is on wikipedia
+  steps:
+    - intent: is_player_on_wiki_list
+    - action: action_show_player_on_list
+

@@ -12,20 +12,25 @@ intents:
   - ask_tournaments
   - show_players
   - show_tournament_description
+  - is_player_on_wiki_list
 
 actions:
   - action_show_tournaments
   - action_show_tournament_players
-  - action_ask_player_info
   - action_show_tournament_description
   - action_show_esport_links
+  - action_show_player_on_list
 
 entities:
   - tournament_id
-
+  - player_nickname
 
 slots:
   tournament_id:
+    type: text
+    mappings:
+      - type: from_text
+  player_nickname:
     type: text
     mappings:
       - type: from_text

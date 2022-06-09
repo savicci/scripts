@@ -30,6 +30,11 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 import json
+from bs4 import BeautifulSoup
+import requests
+
+link = "https://en.wikipedia.org/wiki/List_of_esports_players"
+wiki_link = "https://en.wikipedia.org"
 
 games_file = open("./json/games.json")
 games_data = json.load(games_file)
@@ -112,5 +117,35 @@ class ActionShowEsportLinks(Action):
 
         dispatcher.utter_message(
             text="Cool, here is some e-sport links: {}\n Hope you have fun".format(json.dumps(links_data, indent=2)))
+
+        return []
+
+
+class ActionShowPlayerOnList(Action):
+    def name(self) -> Text:
+        return "action_show_player_on_list"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        print("Calling {}".format(self.name()))
+
+        player_nickname = next(tracker.get_latest_entity_values('player_nickname'), "none")
+
+        res = requests.get(link)
+
+        if res.status_code != 200:
+            dispatcher.utter_message(text="Woops, looks like something is broken. Try later")
+
+        parsed_html = BeautifulSoup(res.text)
+
+        dispatcher.utter_message(text="According to {}\n".format(wiki_link))
+        wiki_player = parsed_html.body.find("a", string=player_nickname)
+        if wiki_player is None:
+            dispatcher.utter_message(text="Unfortunately {} is not on the list".format(player_nickname))
+            return []
+
+        player_link = wiki_link + wiki_player.attrs['href']
+        dispatcher.utter_message(text="We found {}.\nHere is some more info about the player: {}".format(player_nickname, player_link))
 
         return []

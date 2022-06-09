@@ -1,6 +1,8 @@
 aiohttp==3.7.4.post0
 async-timeout==3.0.1
 attrs==21.4.0
+beautifulsoup4==4.11.1
+bs4==0.0.1
 certifi==2022.5.18.1
 chardet==4.0.0
 charset-normalizer==2.0.12
@@ -9,6 +11,7 @@ idna==3.3
 multidict==6.0.2
 python-dotenv==0.20.0
 requests==2.27.1
+soupsieve==2.3.2.post1
 typing_extensions==4.2.0
 urllib3==1.26.9
 wincertstore==0.2
